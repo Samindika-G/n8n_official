@@ -65,6 +65,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss" module>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
 .logoContainer {
 	display: flex;
 	justify-content: center;
@@ -72,6 +74,7 @@ onMounted(() => {
 }
 
 .logoText {
+	font-family: 'Merriweather';
 	font-size: 12px;
 	font-weight: bold;
 	color: var(--color-text-dark);
@@ -91,7 +94,8 @@ onMounted(() => {
 }
 
 .sidebarCollapsed .logoText {
-	width: 6px;
+	// width: 6px;
+	display: none;
 	padding: 0 var(--spacing-4xs);
 }
 </style>
