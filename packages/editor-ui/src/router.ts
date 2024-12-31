@@ -487,7 +487,7 @@ export const routes: RouteRecordRaw[] = [
 			if (settingsStore.settings.hideUsagePage) {
 				return { name: VIEWS.PERSONAL_SETTINGS };
 			}
-			return { name: VIEWS.USAGE };
+			return { name: VIEWS.PERSONAL_SETTINGS };
 		},
 		children: [
 			{

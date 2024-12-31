@@ -3,8 +3,8 @@ import type { FrontendSettings } from '@n8n/api-types';
 import { computed, onMounted, useCssModule, useTemplateRef } from 'vue';
 import { useFavicon } from '@vueuse/core';
 
-import LogoIcon from './logo-icon.svg';
-import LogoText from './logo-text.svg';
+// import LogoIcon from './logo-icon.svg';
+// import LogoText from './logo-text.svg';
 
 const props = defineProps<
 	(
@@ -21,12 +21,6 @@ const props = defineProps<
 >();
 
 const { location, releaseChannel } = props;
-
-const showReleaseChannelTag = computed(() => {
-	if (releaseChannel === 'stable') return false;
-	if (location === 'authView') return true;
-	return !props.collapsed;
-});
 
 const showLogoText = computed(() => {
 	if (location === 'authView') return true;
@@ -63,8 +57,7 @@ onMounted(() => {
 
 <template>
 	<div :class="containerClasses" data-test-id="n8n-logo">
-		<LogoIcon :class="$style.logo" ref="logo" />
-		<LogoText v-if="showLogoText" :class="$style.logoText" />
+		<span :class="$style.logoText">LegisFutura</span>
 		<div v-if="showReleaseChannelTag" size="small" round :class="$style.releaseChannelTag">
 			{{ releaseChannel }}
 		</div>
@@ -75,27 +68,13 @@ onMounted(() => {
 .logoContainer {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .logoText {
-	margin-left: var(--spacing-5xs);
-	path {
-		fill: var(--color-text-dark);
-	}
-}
-
-.releaseChannelTag {
+	font-size: 12px;
+	font-weight: bold;
 	color: var(--color-text-dark);
-	padding: var(--spacing-5xs) var(--spacing-4xs);
-	background-color: var(--color-background-base);
-	border: 1px solid var(--color-foreground-base);
-	border-radius: var(--border-radius-base);
-	font-size: var(--font-size-4xs);
-	font-weight: var(--font-weight-bold);
-	text-transform: capitalize;
-	line-height: var(--font-line-height-regular);
-	height: var(--spacing-s);
-	margin: 10px 0 0 3px;
 }
 
 .authView {
@@ -107,13 +86,12 @@ onMounted(() => {
 	transform: scale(1.3);
 }
 
-.sidebarExpanded .logo {
+.sidebarExpanded .logoText {
 	margin-left: var(--spacing-xs);
 }
 
-.sidebarCollapsed .logo {
-	width: 40px;
-	height: 30px;
+.sidebarCollapsed .logoText {
+	width: 6px;
 	padding: 0 var(--spacing-4xs);
 }
 </style>

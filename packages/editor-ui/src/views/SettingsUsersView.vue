@@ -273,7 +273,7 @@ async function onRoleChange(user: IUser, newRoleName: UpdateGlobalRolePayload['n
 				@click:button="goToUpgrade"
 			/>
 		</div>
-		<n8n-notice v-if="!isAdvancedPermissionsEnabled">
+		<!-- <n8n-notice v-if="!isAdvancedPermissionsEnabled">
 			<i18n-t keypath="settings.users.advancedPermissions.warning">
 				<template #link>
 					<n8n-link size="small" @click="goToUpgradeAdvancedPermissions">
@@ -281,7 +281,7 @@ async function onRoleChange(user: IUser, newRoleName: UpdateGlobalRolePayload['n
 					</n8n-link>
 				</template>
 			</i18n-t>
-		</n8n-notice>
+		</n8n-notice> -->
 		<!-- If there's more than 1 user it means the account quota was more than 1 in the past. So we need to allow instance owner to be able to delete users and transfer workflows.
 		-->
 		<div
