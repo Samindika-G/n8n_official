@@ -22,7 +22,6 @@ import { useSettingsStore } from '@/stores/settings.store';
 import { usePushConnection } from '@/composables/usePushConnection';
 import { usePostHog } from '@/stores/posthog.store';
 
-import GithubButton from 'vue-github-button';
 import { useLocalStorage } from '@vueuse/core';
 
 const router = useRouter();
@@ -70,9 +69,6 @@ const onWorkflowPage = computed(() => !!(route.meta.nodeView || route.meta.keepW
 const readOnly = computed(() => sourceControlStore.preferences.branchReadOnly);
 const isEnterprise = computed(
 	() => settingsStore.isQueueModeEnabled && settingsStore.isWorkerViewAvailable,
-);
-const showGitHubButton = computed(
-	() => !isEnterprise.value && !settingsStore.settings.inE2ETests && !githubButtonHidden.value,
 );
 
 watch(route, (to, from) => {
