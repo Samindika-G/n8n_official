@@ -185,7 +185,7 @@ export const useUIStore = defineStore(STORES.UI, () => {
 	const userStore = useUsersStore();
 
 	const appliedTheme = computed(() => {
-		return theme.value === 'system' ? getPreferredTheme() : theme.value;
+		return theme.value === 'light';
 	});
 
 	const contextBasedTranslationKeys = computed(() => {
@@ -320,8 +320,8 @@ export const useUIStore = defineStore(STORES.UI, () => {
 	// Methods
 
 	const setTheme = (newTheme: ThemeOption): void => {
-		theme.value = newTheme;
-		updateTheme(newTheme);
+		theme.value = 'light';
+		// updateTheme(newTheme);
 	};
 
 	const setMode = (name: keyof Modals, mode: string): void => {
