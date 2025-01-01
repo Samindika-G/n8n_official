@@ -50,36 +50,36 @@ const isCommunityNode = computed(() => {
 
 const packageName = computed(() => props.nodeType?.name.split('.')[0] ?? '');
 
-const documentationUrl = computed(() => {
-	const nodeType = props.nodeType;
+// const documentationUrl = computed(() => {
+// 	const nodeType = props.nodeType;
 
-	if (!nodeType) {
-		return '';
-	}
+// 	if (!nodeType) {
+// 		return '';
+// 	}
 
-	if (nodeType.documentationUrl && nodeType.documentationUrl.startsWith('http')) {
-		return nodeType.documentationUrl;
-	}
+// 	if (nodeType.documentationUrl && nodeType.documentationUrl.startsWith('http')) {
+// 		return nodeType.documentationUrl;
+// 	}
 
-	const utmParams = new URLSearchParams({
-		utm_source: 'n8n_app',
-		utm_medium: 'node_settings_modal-credential_link',
-		utm_campaign: nodeType.name,
-	});
+// 	const utmParams = new URLSearchParams({
+// 		utm_source: 'n8n_app',
+// 		utm_medium: 'node_settings_modal-credential_link',
+// 		utm_campaign: nodeType.name,
+// 	});
 
-	// Built-in node documentation available via its codex entry
-	const primaryDocUrl = nodeType.codex?.resources?.primaryDocumentation?.[0]?.url;
-	if (primaryDocUrl) {
-		return `${primaryDocUrl}?${utmParams.toString()}`;
-	}
+// 	// Built-in node documentation available via its codex entry
+// 	const primaryDocUrl = nodeType.codex?.resources?.primaryDocumentation?.[0]?.url;
+// 	if (primaryDocUrl) {
+// 		return `${primaryDocUrl}?${utmParams.toString()}`;
+// 	}
 
-	if (isCommunityNode.value) {
-		return `${NPM_PACKAGE_DOCS_BASE_URL}${packageName.value}`;
-	}
+// 	if (isCommunityNode.value) {
+// 		return `${NPM_PACKAGE_DOCS_BASE_URL}${packageName.value}`;
+// 	}
 
-	// Fallback to the root of the node documentation
-	return `${BUILTIN_NODES_DOCS_URL}?${utmParams.toString()}`;
-});
+// 	// Fallback to the root of the node documentation
+// 	return `${BUILTIN_NODES_DOCS_URL}?${utmParams.toString()}`;
+// });
 
 const options = computed<ITab[]>(() => {
 	const options: ITab[] = [
@@ -107,33 +107,33 @@ const options = computed<ITab[]>(() => {
 		});
 	}
 
-	if (documentationUrl.value) {
-		options.push({
-			label: i18n.baseText('nodeSettings.docs'),
-			value: 'docs',
-			href: documentationUrl.value,
-			align: 'right',
-		});
-	}
+	// if (documentationUrl.value) {
+	// 	options.push({
+	// 		label: i18n.baseText('nodeSettings.docs'),
+	// 		value: 'docs',
+	// 		href: documentationUrl.value,
+	// 		align: 'right',
+	// 	});
+	// }
 
 	return options;
 });
 
 function onTabSelect(tab: string) {
-	if (tab === 'docs' && props.nodeType) {
-		void externalHooks.run('dataDisplay.onDocumentationUrlClick', {
-			nodeType: props.nodeType,
-			documentationUrl: documentationUrl.value,
-		});
+	// if (tab === 'docs' && props.nodeType) {
+	// 	void externalHooks.run('dataDisplay.onDocumentationUrlClick', {
+	// 		nodeType: props.nodeType,
+	// 		documentationUrl: documentationUrl.value,
+	// 	});
 
-		telemetry.track('User clicked ndv link', {
-			node_type: activeNode.value?.type,
-			workflow_id: workflowsStore.workflowId,
-			push_ref: props.pushRef,
-			pane: NodeConnectionType.Main,
-			type: 'docs',
-		});
-	}
+	// 	telemetry.track('User clicked ndv link', {
+	// 		node_type: activeNode.value?.type,
+	// 		workflow_id: workflowsStore.workflowId,
+	// 		push_ref: props.pushRef,
+	// 		pane: NodeConnectionType.Main,
+	// 		type: 'docs',
+	// 	});
+	// }
 
 	if (tab === 'settings' && props.nodeType) {
 		telemetry.track('User viewed node settings', {

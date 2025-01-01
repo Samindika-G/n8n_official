@@ -451,6 +451,7 @@ const onNodeExecute = () => {
 					/>
 				</div>
 
+				<!-- Executon help text ? -->
 				<n8n-text v-if="activationHint" size="small" @click="onLinkClick">
 					<span v-n8n-html="activationHint"></span>&nbsp;
 				</n8n-text>
