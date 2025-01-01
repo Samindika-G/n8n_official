@@ -66,13 +66,7 @@ const sidebarMenuItems = computed<IMenuItem[]>(() => {
 					<n8n-heading size="large" :bold="true">{{ i18n.baseText('settings') }}</n8n-heading>
 				</div>
 			</template>
-			<template #menuSuffix>
-				<div :class="$style.versionContainer">
-					<n8n-link size="small" @click="uiStore.openModal(ABOUT_MODAL_KEY)">
-						{{ i18n.baseText('settings.version') }} {{ rootStore.versionCli }}
-					</n8n-link>
-				</div>
-			</template>
+			<template #menuSuffix> </template>
 		</n8n-menu>
 	</div>
 </template>

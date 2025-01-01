@@ -9,8 +9,7 @@ export function useDocumentTitle() {
 		!releaseChannel || releaseChannel === 'stable' ? 'n8n' : `n8n[${releaseChannel.toUpperCase()}]`;
 
 	const set = (title: string) => {
-		const sections = [title || DEFAULT_TITLE, suffix];
-		document.title = sections.join(' - ');
+		document.title = DEFAULT_TITLE;
 	};
 
 	const reset = () => {

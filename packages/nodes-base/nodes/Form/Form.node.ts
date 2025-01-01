@@ -175,12 +175,12 @@ export class Form extends Node {
 	nodeInputData: INodeExecutionData[] = [];
 
 	description: INodeTypeDescription = {
-		displayName: 'n8n Form',
+		displayName: 'Form',
 		name: 'form',
 		icon: 'file:form.svg',
 		group: ['input'],
 		version: 1,
-		description: 'Generate webforms in n8n and pass their responses to the workflow',
+		description: 'Generate webforms and pass their responses to the workflow',
 		defaults: {
 			name: 'Form',
 		},
