@@ -562,7 +562,6 @@ export const enum WORKFLOW_MENU_ACTIONS {
 	PUSH = 'push',
 	SETTINGS = 'settings',
 	DELETE = 'delete',
-	SWITCH_NODE_VIEW_VERSION = 'switch-node-view-version',
 }
 
 /**
