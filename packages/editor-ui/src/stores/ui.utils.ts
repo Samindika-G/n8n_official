@@ -23,9 +23,8 @@ function getQueryParam(paramName: string): string | null {
 
 export function updateTheme(theme: ThemeOption) {
 	if (theme === 'system') {
-		themeRef.value = 'light';
-		// window.document.body.removeAttribute('data-theme');
-		// themeRef.value = null;
+		window.document.body.removeAttribute('data-theme');
+		themeRef.value = null;
 	} else {
 		addThemeToBody(theme);
 		themeRef.value = theme;
@@ -36,5 +35,5 @@ export function getPreferredTheme(): AppliedThemeOption {
 	const isDarkMode =
 		!!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')?.matches;
 
-	return isDarkMode ? 'light' : 'light';
+	return isDarkMode ? 'dark' : 'light';
 }
