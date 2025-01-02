@@ -64,14 +64,10 @@ import {
 import { computed, ref } from 'vue';
 import type { Connection } from '@vue-flow/core';
 
-let savedTheme: ThemeOption = 'system';
+let savedTheme: ThemeOption = 'light';
 
 try {
-	const value = getThemeOverride();
-	if (isValidTheme(value)) {
-		savedTheme = value;
-		addThemeToBody(value);
-	}
+	addThemeToBody('light');
 } catch (e) {}
 
 type UiStore = ReturnType<typeof useUIStore>;
