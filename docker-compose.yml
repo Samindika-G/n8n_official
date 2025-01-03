@@ -5,6 +5,15 @@ services:
       context: .
       dockerfile: docker/images/n8n-custom/Dockerfile
     image: n8n-custom
+    environment:
+      - N8N_SECURE_COOKIE=false
+      - DOMAIN_NAME=datafabdevelopment.com
+      - SUBDOMAIN=chicago-workflow-dev
+      - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
+      - N8N_PORT=5681
+      - N8N_PROTOCOL=https
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
     container_name: n8n-custom
     restart: unless-stopped
     networks:
