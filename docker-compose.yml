@@ -27,7 +27,7 @@ services:
     image: nginx:latest
     container_name: nginx
     ports:
-      - "5680:80"  # Expose Nginx on port 5678 to the host
+      - "5681:80"  # Expose Nginx on port 5678 to the host
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
